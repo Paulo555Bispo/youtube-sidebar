@@ -1,7 +1,7 @@
 import { MatIconModule } from '@angular/material/icon';
 import { Component, computed, Input, signal } from '@angular/core';
 import { MatListModule } from '@angular/material/list';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 
 export type MenuItem = {
   icon: string;
@@ -9,9 +9,10 @@ export type MenuItem = {
   route: string;
 }
 
+
 @Component({
   selector: 'app-custom-sidenav',
-  imports: [MatListModule, MatIconModule, NgFor],
+  imports: [MatListModule, MatIconModule, NgFor, NgIf],
   templateUrl: './custom-sidenav.html',
   styleUrl: './custom-sidenav.scss'
 })
@@ -27,22 +28,22 @@ export class CustomSidenav {
   menuItems = signal<MenuItem[]>([
     {
       icon: 'dashboard',
-      label: 'Dashboard',
+      label: 'Painel',
       route: 'dasboard',
     },
     {
       icon: 'video_library',
-      label: 'Content',
+      label: 'Conteúdo',
       route: 'content',
     },
     {
       icon: 'assessment',
-      label: 'Analitcs',
+      label: 'Análises',
       route: 'analitics',
     },
     {
       icon: 'comments',
-      label: 'Comments',
+      label: 'Comentários',
       route: 'comments',
     }
   ]);

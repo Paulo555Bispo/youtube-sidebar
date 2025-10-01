@@ -1,7 +1,6 @@
 import { MatIconModule } from '@angular/material/icon';
 import { Component, computed, Input, signal } from '@angular/core';
 import { MatListModule } from '@angular/material/list';
-import { NgFor, NgIf } from '@angular/common';
 
 export type MenuItem = {
   icon: string;
@@ -12,7 +11,7 @@ export type MenuItem = {
 
 @Component({
   selector: 'app-custom-sidenav',
-  imports: [MatListModule, MatIconModule, NgFor, NgIf],
+  imports: [MatListModule, MatIconModule],
   templateUrl: './custom-sidenav.html',
   styleUrl: './custom-sidenav.scss'
 })

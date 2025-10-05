@@ -1,6 +1,12 @@
+:host * {
+  transition: all 500ms ease-in-out;
+}
+
 .sidenav-header {
   padding-top: 24px;
   text-align: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 
    img {
     border-radius: 100%;
@@ -8,7 +14,10 @@
     margin-bottom: 10px;
    }
 
-   .header-text {
+  .header-text {
+      height: 3rem;
+      transition: opacity 0.3s ease, height 0.3s ease;
+
     h2 {
       margin: 0;
       font-size: 1rem;
@@ -23,6 +32,57 @@
 }
 
 .hide-header-text {
-  opacity:0;
-  height: 0px;
+  opacity: 0;
+  height: 0px !important;
+  overflow: hidden;
+}
+
+.menu-item {
+  border-left:5px solid;
+  border-left-color: rgba(0,0,0,0);
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  margin: 4px 8px;
+}
+
+.selected-menu-item {
+  border-left-color: var(--primary-color);
+  background-color: rgba(255, 140, 1, 0.1);
+}
+
+/* Ícones */
+.active-icon {
+  color: sandybrown;
+  font-weight: bold;
+}
+
+.inactive-icon {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.dark-theme .inactive-icon {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Textos */
+.active-text {
+  color: #ffa632; /* Cor primária */
+  font-weight: 500;
+}
+
+.inactive-text {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.dark-theme .inactive-text {
+  color: rgba(255, 255, 255, 0.87);
+}
+
+/* Efeitos de hover */
+.menu-item:hover:not(.selected-menu-item) {
+  background-color: rgb(244, 173, 228);
+}
+
+.dark-theme .menu-item:hover:not(.selected-menu-item) {
+  background-color: rgba(255, 255, 255, 0.04);
 }

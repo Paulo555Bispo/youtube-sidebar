@@ -5,12 +5,15 @@
 // Learn more about theming and how to use it for your application's
 // custom components at https://material.angular.dev/guide/theming
 @use '@angular/material' as mat;
+@include mat.core();
 
 html {
+  color-scheme: light dark;
   @include mat.theme((
     color: (
       primary: mat.$cyan-palette,
       tertiary: mat.$orange-palette,
+      theme-type: light,
     ),
     typography: Roboto,
     density: 0,
@@ -38,5 +41,8 @@ body {
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+
 // Explicitly include elevation classes if needed
 @include mat.elevation-classes();
+
+

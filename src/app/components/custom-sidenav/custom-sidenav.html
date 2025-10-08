@@ -13,8 +13,7 @@
 </div>
 
 <mat-nav-list>
-  <!-- @for (item of menuItems(); track $index) -->
-   @for (item of menuItems(); track item.route || $index)
+   @for (item of menuItems(); track item.route)
   {
     <a
       mat-list-item
@@ -24,11 +23,11 @@
       #rla="routerLinkActive"
       [activated]="rla.isActive"
       >
-<!--      <mat-icon  matListItemIcon
+      <mat-icon  matListItemIcon
         [fontSet]="rla.isActive ? 'material-icons' : 'material-icons-outlined'">
         {{ item.icon }}
-      </mat-icon> -->
-      @if (rla.isActive) {
+      </mat-icon>
+      <!-- @if (rla.isActive) {
         <mat-icon matListItemIcon class="active-icon">
           {{ item.activeIcon || item.icon }}
         </mat-icon>
@@ -36,7 +35,7 @@
         <mat-icon matListItemIcon class="inactive-icon">
           {{ item.icon }}
         </mat-icon>
-      }
+      } -->
 
       @if (!sideNavCollapsed()) {
           <span matListItemTitle

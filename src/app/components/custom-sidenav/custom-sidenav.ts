@@ -30,7 +30,7 @@ export class CustomSidenav {
       icon: 'dashboard',
       activeIcon: 'dashboard',
       label: 'Painel',
-      route: 'dasboard',
+      route: 'dashboard',
     },
     {
       icon: 'video_library',

@@ -2,6 +2,11 @@
   <button mat-icon-button (click) = "collapsed.set( !collapsed() )" >
     <mat-icon>menu</mat-icon>
   </button>
+  <span>Avatar</span>
+  <span class="toll-bar-spacer"></span>
+  <button matIconButton class="example-icon" aria-label="Ícone de logout do Sistema">
+    <mat-icon>logout</mat-icon>
+  </button>
 </mat-toolbar>
 <mat-sidenav-container>
   <mat-sidenav opened mode = "side" [style.width] = "sidenavWidth()">

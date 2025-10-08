@@ -1,34 +1,42 @@
-:host * {
-  transition: all 500ms ease-in-out;
+:host {
+  display: block;
+
+  * {
+    transition: all 500ms ease-in-out;
+  }
 }
 
 .sidenav-header {
   padding-top: 24px;
   text-align: center;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(238, 5, 5, 0.1);
   transition: all 0.3s ease;
 
-   img {
+  img {
     border-radius: 100%;
     object-fit: cover;
     margin-bottom: 10px;
-   }
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+  }
 
   .header-text {
-      height: 3rem;
-      transition: opacity 0.3s ease, height 0.3s ease;
+    height: 3rem;
+    transition: opacity 0.3s ease, height 0.3s ease;
 
     h2 {
       margin: 0;
       font-size: 1rem;
       line-height: 1.5rem;
+      font-weight: 500;
     }
 
     p {
       margin: 0;
       font-size: 0.8rem;
+      opacity: 0.7;
     }
-   }
+  }
 }
 
 .hide-header-text {
@@ -38,21 +46,30 @@
 }
 
 .menu-item {
-  border-left:5px solid;
-  border-left-color: rgba(0,0,0,0);
+  border-left: 5px solid;
+  border-left-color: rgba(0, 0, 0, 0);
   transition: all 0.3s ease;
-  border-radius: 8px;
-  margin: 4px 8px;
+  border-radius: 0 8px 8px 0;
+  margin: 4px 8px 4px 0;
+
+  &:hover {
+    background-color: rgba(235, 173, 111, 0.04);
+  }
 }
 
 .selected-menu-item {
-  border-left-color: var(--primary-color);
-  background-color: rgba(255, 140, 1, 0.1);
+  border-left-color: #ee6d04; /* Cor primária */
+  background-color: rgba(247, 67, 2, 0.947);
+
+  &:hover {
+    background-color: #ee6d04;
+;
+  }
 }
 
 /* Ícones */
 .active-icon {
-  color: sandybrown;
+  color: #02f72f; /* Cor primária */
   font-weight: bold;
 }
 
@@ -60,13 +77,10 @@
   color: rgba(0, 0, 0, 0.6);
 }
 
-.dark-theme .inactive-icon {
-  color: rgba(255, 255, 255, 0.6);
-}
 
 /* Textos */
 .active-text {
-  color: #ffa632; /* Cor primária */
+  color: rgba(247, 67, 2, 0.947); /* Cor primária */
   font-weight: 500;
 }
 
@@ -74,15 +88,21 @@
   color: rgba(0, 0, 0, 0.87);
 }
 
-.dark-theme .inactive-text {
-  color: rgba(255, 255, 255, 0.87);
-}
+/* Suporte para tema escuro */
+:host-context(.dark-theme) {
+  .inactive-icon {
+    color: rgba(255, 255, 255, 0.6);
+  }
 
-/* Efeitos de hover */
-.menu-item:hover:not(.selected-menu-item) {
-  background-color: rgb(244, 173, 228);
-}
+  .inactive-text {
+    color: rgba(255, 255, 255, 0.87);
+  }
 
-.dark-theme .menu-item:hover:not(.selected-menu-item) {
-  background-color: rgba(255, 255, 255, 0.04);
+  .menu-item:hover:not(.selected-menu-item) {
+    background-color: rgba(255, 255, 255, 0.04);
+  }
+
+  .sidenav-header {
+    border-bottom-color: rgba(28, 236, 9, 0.956);
+  }
 }

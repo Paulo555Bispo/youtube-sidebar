@@ -45,48 +45,68 @@
   overflow: hidden;
 }
 
+// mat-nav-list {
+//   padding: 0;
+
+//   .mat-list-item {
+//     padding: 0;
+
+//     .mat-list-item-content {
+//       padding: 0;
+
+//       .mat-list-text {
+//         margin: 0;
+//         padding: 10px 16px;
+//       }
+
+// /* Ícones */
+// mat-icon {
+//   font-size: 24px;
+//   color: #344F1F;
+
+//     .matListItemIcon {
+
+
+//       .active-icon {
+//         color-scheme: red; /* Cor primária */
+//         font-weight: 500;
+//       }
+
+//     .inactive-icon {
+//       color: #344F1F;
+//     }
+//   }
+// }
+//     }
+//   }
+// }
+
 .menu-item {
   border-left: 5px solid;
   border-left-color: rgba(0, 0, 0, 0);
   transition: all 0.3s ease;
-  border-radius: 0 8px 8px 0;
   margin: 4px 8px 4px 0;
 
   &:hover {
-    background-color: rgba(235, 173, 111, 0.04);
+    background-color: #f47b03;
   }
 }
 
 .selected-menu-item {
   border-left-color: #ee6d04; /* Cor primária */
-  background-color: rgba(247, 67, 2, 0.947);
 
   &:hover {
-    background-color: #ee6d04;
-;
+    background-color: hsl(63, 96%, 49%);
   }
 }
 
-/* Ícones */
-.active-icon {
-  color: #02f72f; /* Cor primária */
-  font-weight: bold;
-}
-
-.inactive-icon {
-  color: rgba(0, 0, 0, 0.6);
-}
-
-
 /* Textos */
 .active-text {
-  color: rgba(247, 67, 2, 0.947); /* Cor primária */
+  color: #ee6d04; /* Cor primária */
   font-weight: 500;
 }
 
-.inactive-text {
-  color: rgba(0, 0, 0, 0.87);
-}
+
 
 /* Suporte para tema escuro */
 :host-context(.dark-theme) {
@@ -102,7 +122,11 @@
     background-color: rgba(255, 255, 255, 0.04);
   }
 
-  .sidenav-header {
-    border-bottom-color: rgba(28, 236, 9, 0.956);
+  .selected-menu-item {
+    border-left-color: #f47b03; /* Cor primária */
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.08);
+    }
   }
 }

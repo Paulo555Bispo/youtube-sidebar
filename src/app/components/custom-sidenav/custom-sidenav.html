@@ -27,15 +27,6 @@
         [fontSet]="rla.isActive ? 'material-icons' : 'material-icons-outlined'">
         {{ item.icon }}
       </mat-icon>
-      <!-- @if (rla.isActive) {
-        <mat-icon matListItemIcon class="active-icon">
-          {{ item.activeIcon || item.icon }}
-        </mat-icon>
-      } @else {
-        <mat-icon matListItemIcon class="inactive-icon">
-          {{ item.icon }}
-        </mat-icon>
-      } -->
 
       @if (!sideNavCollapsed()) {
           <span matListItemTitle

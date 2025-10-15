@@ -2,14 +2,14 @@
   display: block;
 
   * {
-    transition: all 500ms ease-in-out;
+    transition: all 300ms ease-in-out;
   }
 }
 
 .sidenav-header {
   padding-top: 24px;
   text-align: center;
-  border-bottom: 1px solid rgba(238, 5, 5, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 
   img {
@@ -45,68 +45,120 @@
   overflow: hidden;
 }
 
-// mat-nav-list {
-//   padding: 0;
-
-//   .mat-list-item {
-//     padding: 0;
-
-//     .mat-list-item-content {
-//       padding: 0;
-
-//       .mat-list-text {
-//         margin: 0;
-//         padding: 10px 16px;
-//       }
-
-// /* Ícones */
-// mat-icon {
-//   font-size: 24px;
-//   color: #344F1F;
-
-//     .matListItemIcon {
-
-
-//       .active-icon {
-//         color-scheme: red; /* Cor primária */
-//         font-weight: 500;
-//       }
-
-//     .inactive-icon {
-//       color: #344F1F;
-//     }
-//   }
-// }
-//     }
-//   }
-// }
-
+// Itens de menu base
 .menu-item {
   border-left: 5px solid;
   border-left-color: rgba(0, 0, 0, 0);
   transition: all 0.3s ease;
-  margin: 4px 8px 4px 0;
+  border-radius: 0;
+  margin: 2px 8px 2px 2px;
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  width: 100%;
+  text-align: left;
 
   &:hover {
-    background-color: #f47b03;
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+}
+
+// Item pai com submenu
+.menu-parent {
+  .parent-item {
+    position: relative;
+    border-left-color: transparent;
+    cursor: pointer;
+
+    &.has-active-child {
+      border-left-color: #6f32ff;
+      background-color: rgba(111, 50, 255, 0.05);
+    }
+
+    .expand-icon {
+      margin-left: auto;
+      font-size: 18px;
+      width: 18px;
+      height: 18px;
+      transition: transform 0.3s ease;
+      color: rgba(0, 0, 0, 0.5);
+
+      &.expanded {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+
+// Submenu
+.submenu {
+  margin-left: 16px;
+  overflow: hidden;
+  animation: slideDown 0.3s ease-out;
+
+  .child-item {
+    margin-left: 8px;
+    border-left-width: 3px;
+    border-radius: 0 6px 6px 0;
+    min-height: 40px;
+
+    // Indentação visual para subitens
+    mat-icon[matListItemIcon] {
+      margin-left: 8px;
+      font-size: 18px;
+      width: 18px;
+      height: 18px;
+    }
+
+    span[matListItemTitle] {
+      font-size: 0.9rem;
+      margin-left: 4px;
+    }
+  }
+}
+
+// Animação para submenu
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    max-height: 300px;
+    transform: translateY(0);
   }
 }
 
 .selected-menu-item {
-  border-left-color: #ee6d04; /* Cor primária */
+  border-left-color: #6f32ff;
+  background-color: rgba(111, 50, 255, 0.1);
 
   &:hover {
-    background-color: hsl(63, 96%, 49%);
+    background-color: rgba(111, 50, 255, 0.15);
   }
+}
+
+/* Ícones */
+.active-icon {
+  color: #6f32ff;
+  font-weight: bold;
+}
+
+.inactive-icon {
+  color: rgba(0, 0, 0, 0.6);
 }
 
 /* Textos */
 .active-text {
-  color: #ee6d04; /* Cor primária */
+  color: #6f32ff;
   font-weight: 500;
 }
 
-
+.inactive-text {
+  color: rgba(0, 0, 0, 0.87);
+}
 
 /* Suporte para tema escuro */
 :host-context(.dark-theme) {
@@ -122,11 +174,28 @@
     background-color: rgba(255, 255, 255, 0.04);
   }
 
-  .selected-menu-item {
-    border-left-color: #f47b03; /* Cor primária */
+  .sidenav-header {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+  }
 
-    &:hover {
-      background-color: rgba(255, 255, 255, 0.08);
+  .parent-item .expand-icon {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .menu-parent .parent-item.has-active-child {
+    background-color: rgba(111, 50, 255, 0.08);
+  }
+}
+
+// Estilos para quando o menu está colapsado
+:host-context(.sidenav-collapsed) {
+  .menu-parent .parent-item {
+    .expand-icon {
+      display: none;
     }
+  }
+
+  .submenu {
+    display: none !important;
   }
 }
